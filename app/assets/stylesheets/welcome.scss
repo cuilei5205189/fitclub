@@ -1,0 +1,125 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.box-welcome {
+    padding: 70px 120px;
+    text-align: center;
+}
+
+.btn-welcome {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+}
+// welcome
+.jumbotron {
+  background-image: url("header.jpg");
+  background-repeat: no-repeat;
+//   background-position: center;
+  background-size: cover;
+  min-height: 700px;
+}
+
+
+ .title {
+  font-size: 45px;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-top: 220px;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.slogan {
+  text-align: center;
+  color: white;
+
+}
+
+.lead {
+  margin-top: 30px;
+  text-align: center;
+}
+
+
+//-----------section2-------------
+
+.person {
+    border: 10px solid transparent;
+    width: 80%;
+    height: 80%;
+    opacity: 0.9;
+}
+
+
+// ----------secation3---------
+.bg-1 {
+    background: #2d2d30;
+    color: #bdbdbd;
+}
+.bg-1 h3 {color: #fff;}
+
+.thumbnail p {
+    margin-top: 15px;
+    color: #555;
+}
+
+.btn-welcome:hover, .btn:focus {
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+}
+
+
+// 用户反馈
+
+.tagline {
+  text-align: center;
+  color: gray;
+  letter-spacing: 2px;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.feedback {
+  margin-top: 40px;
+  padding-bottom: 110px;
+  text-align: justify;
+  line-height: 25px;
+  color: gray;
+  img {
+    height: 110px;
+    width: 110px;
+  }
+  p {
+    letter-spacing: 1px;
+  }
+}
+
+.short-line {
+  display: block;
+  background: #35CCC6;
+  border-style: none;
+  border-radius: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  z-index: 53;
+  width: 100px;
+  height: 1.5px;
+  position: relative;
+}
+
+//
+.bottom {
+  text-align: center;
+  height: 250px;
+  background: url("bottom1.jpg") no-repeat scroll top center/ cover;
+  a{
+    margin-top: 120px;
+  }
+}
