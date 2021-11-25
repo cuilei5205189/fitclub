@@ -10,17 +10,8 @@
   </head>
 
   <body>
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <%= render "common/navbar" %>
-          <%= yield %>
-        </div>
-
-      </div>
-    </div>
+    <%= render "common/navbar" %>
+    <%= yield %>
     <%= render "common/footer" %>
-
-
   </body>
 </html>

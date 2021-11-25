@@ -1,124 +1,117 @@
-<div class="jumbotron" style="border-radius:0">
-  <h2 class="title">Fitness健身俱乐部</h2>
-  <p class="slogan" style="font-size:30px">脱胎换骨 挑战自我</p>
-  <p class="lead"><a class="btn btn-lg btn-welcome" href="/products">加入我们</a></p>
-</div>
+<div id="welcome">
+  <div class="jumbotron row text-white text-center py-11">
+    <h2 class="fw-bolder display-4 mt-5">Fitness健身俱乐部</h2>
+    <p class="slogan fs-3 fw-light" >脱胎换骨 挑战自我</p>
+    <p class="lead"><a class="btn btn-lg display-1 bg-dark text-white fw-bolder" href="/products">加入我们</a></p>
+  </div>
 
-<!-- section2 -->
-<div class="container box-welcome" style="margin-top:-40px">
-  <h3 class="tagline">关于我们</h3>
-  <p style="font-size:15px">本俱乐部成立于1998年，近20年的风雨相伴，
-  始终如一地坚持 <strong>专业、专注、专心</strong>的“三专主义”
-  </p>
-  <br><br>
+  <div class="container text-center mt-8 mb-2">
+    <h3>关于我们</h3>
+    <p>本俱乐部成立于1998年，近20年的风雨相伴， 始终如一地坚持 <strong>专业、专注、专心</strong>的"三专主义" </p>
+    <br><br>
+    <div class="row justify-content-center">
+      <div class="col-md-4 col-9 shadowandborder mb-5">
+        <p class="text-center"><strong>一流的环境设施</strong></p><br>
+        <%= image_tag("equipment.jpg", :class => "rounded-circle shadow-lg w-75" )%>
+        <div>
+          <br>
+          <p>高级器械</p>
+          <p>恒温泳池</p>
+          <p>沐浴桑拿</p>
+        </div>
+      </div>
 
-  <div class="col-md-4 col-xs-4">
-    <p class="text-center"><strong>一流的环境设施</strong></p><br>
-    <%= image_tag("equipment.jpg", :class => "img-circle person", :id => "trip1" )%>
-    <div>
-      <br>
-      <p>高级器械</p>
-      <p>恒温泳池</p>
-      <p>沐浴桑拿</p>
+      <div class="col-md-4 col-9  shadowandborder mb-5">
+        <p class="text-center"><strong>专业的教练团队</strong></p><br>
+        <%= image_tag("boy.jpg", :class => "rounded-circle shadow-lg w-75" )%>
+        <div>
+          <br>
+          <p>精心指导</p>
+          <p>专业素质</p>
+          <p>成果导向</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-9  shadowandborder">
+        <p class="text-center"><strong>极致的贴心服务</strong></p><br>
+        <%= image_tag("severs.jpg", :class => "rounded-circle shadow-lg w-75" )%>
+        <div>
+          <br>
+          <p>专人跟进</p>
+          <p>私人定制</p>
+          <p>专属菜谱</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="col-md-4 col-xs-4">
-    <p class="text-center"><strong>专业的教练团队</strong></p><br>
-    <%= image_tag("boy.jpg", :class => "img-circle person", :id => "trip1" )%>
-    <div>
-      <br>
-      <p>精心指导</p>
-      <p>专业素质</p>
-      <p>成果导向</p>
-    </div>
-  </div>
-
-  <div class="col-md-4 col-xs-4">
-    <p class="text-center"><strong>极致的贴心服务</strong></p><br>
-    <%= image_tag("severs.jpg", :class => "img-circle person", :id => "trip1" )%>
-    <div>
-      <br>
-      <p>专人跟进</p>
-      <p>私人定制</p>
-      <p>专属菜谱</p>
-    </div>
-  </div>
-
-</div>
-
-<!-- section3 -->
-<div class="bg-1">
-  <div class="container box-welcome">
-    <h3 class="tagline">热销课程</h3>
+  <div class="container-fluid text-center mt-3 bg-dark text-light pt-8 pb-8">
+    <h3 class="text-white">热销课程</h3>
     <p class="text-center">深受会员喜爱的明星课程<br> 欢迎体验 </p>
+    <div class="row justify-content-center text-dark mx-5">
+      <div class="col-lg-3 col-10 bg-white m-5 p-2 pb-4 rounded-2">
+        <div class="thumbnail">
+          <%= image_tag("vip.jpg", class: 'w-100')  %>
+          <p><strong> 会员卡 </strong></p>
+          <p>参加大课，尽享运动快乐</p>
+          <a class="btn btn-dark" href="/products">购买</a>
+        </div>
+      </div>
 
-    <div class="col-md-4 col-xs-12">
-      <div class="thumbnail">
-        <%= image_tag("vip.jpg", :style => "width:400 height:300" )%>
+      <div class="col-lg-3 col-10 bg-white m-5 p-2 pb-4 rounded-2">
+        <div class="thumbnail">
+          <%= image_tag("onebyone.jpg", class: 'w-100')  %>
+          <p><strong>一对一私教</strong></p>
+          <p>专业指导，尊享极速健身</p>
+          <a class="btn btn-dark" href="/products">购买</a>
+        </div>
+      </div>
 
-        <p><strong> 会员卡 </strong></p>
-        <p>参加大课，尽享运动快乐</p>
-        <a class="btn btn-welcome" href="/products">购买</a>
+      <div class="col-lg-3 col-10 bg-white m-5 p-2 pb-4 rounded-2">
+        <div class="thumbnail">
+          <%= image_tag("yoga1.jpg", class: 'w-100')  %>
+          <p><strong>瑜珈导师训练</strong></p>
+          <p> 精进技艺，让你与众不同</p>
+          <a class="btn btn-dark text-white" href="/products">购买</a>
+        </div>
       </div>
     </div>
-
-    <div class="col-md-4 col-xs-12">
-      <div class="thumbnail">
-        <%= image_tag("onebyone.jpg", :style => "width:400 height:300" )%>
-        <p><strong>一对一私教</strong></p>
-        <p>专业指导，尊享极速健身</p>
-        <a class="btn btn-welcome" href="/products">购买</a>
-      </div>
-    </div>
-
-    <div class="col-md-4 col-xs-12">
-      <div class="thumbnail">
-        <%= image_tag("yoga1.jpg", :style => "width:400 height:300" )%>
-        <p><strong>瑜珈导师训练</strong></p>
-        <p> 精进技艺，让你与众不同</p>
-        <a class="btn btn-welcome" href="/products">购买</a>
-      </div>
-    </div>
-
   </div>
-</div>
 
-<div class="container box-welcome">
-  <h3 class="tagline">听听他们 怎么说</h1>
+  <div class="container text-center my-8 feedback">
+    <h3 class="mb-8 me-5">听听他们 怎么说...</h3>
+      <div class="row justify-content-center">
+        <div class="col-md-5 col-12 d-xl-flex d-lg-flex justify-content-xl-evenly align-items-xl-center me-4">
+          <div class="align-self-md-start mb-5">
+            <%= image_tag("lei.jpeg", class: "rounded-circle") %>
+          </div>
+          <div class="text-md-start text-center px-2">
+            <h5 class="blockquote-footer">Lei</h5>
+            <p class="text-start blockquote">
+              健康生活理念已经越来越深入人心，人人都在为自己的健康投资。
+              Fitness有齐全的器械设备，有较全的健身及娱乐项目，有细心入微的服务，还有专业的教练进行指导，有良好的健身氛围。
+              在这里，我与许多志同道合的小伙伴一起脱胎换骨。
+            </p>
+          </div>
+        </div>
 
-    <div class="col-md-6 col-xs-12 feedback">
-      <div class="col-md-3 col-md-offset-1 col-xs-10 col-xs-offset-3">
-        <br>
-        <%= image_tag("lei.jpeg", class: "img-circle img-responsive") %>
+        <div class="col-md-5 col-12 d-xl-flex d-lg-flex justify-content-xl-evenly align-items-xl-center">
+          <div class="align-self-md-start mb-5">
+            <%= image_tag("huang.jpeg", class: "rounded-circle") %>
+          </div>
+          <div class="text-md-start text-center px-2">
+            <h5 class="blockquote-footer">Huang</h5>
+            <p class="text-start blockquote">长期的高压生活和伏案工作，令我身体进入了亚健康的状态。
+              加入Fitness健身俱乐部后，除了收获了健康的身体，更收获了健康生活的理念。
+              为了更好地工作，更为了长久地陪伴在家人身边，投资自己的健康，是我实现自己幸福生活的必要途径。
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="col-md-8 col-xs-12">
-        <h5>Lei</h5>
-        <p>
-          健康生活理念已经越来越深入人心，人人都在为自己的健康投资。
-          Fitness有齐全的器械设备，有较全的健身及娱乐项目，有细心入微的服务，还有专业的教练进行指导，有良好的健身氛围。
-          在这里，我与许多志同道合的小伙伴一起脱胎换骨。
-        </p>
-      </div>
-    </div>
+  </div>
 
-    <div class="col-md-6 col-xs-12 feedback">
-      <div class="col-md-3  col-md-offset-1 col-xs-10 col-xs-offset-3">
-        <br>
-        <%= image_tag("huang.jpeg", class: "img-circle img-responsive") %>
-      </div>
-      <div class="col-md-8 col-xs-12">
-        <h5>Huang</h5>
-        <p>长期的高压生活和伏案工作，令我身体进入了亚健康的状态。
-           加入Fitness健身俱乐部后，除了收获了健康的身体，更收获了健康生活的理念。
-           为了更好地工作，更为了长久地陪伴在家人身边，投资自己的健康，是我实现自己幸福生活的必要途径。
-        </p>
-      </div>
-    </div>
-</div>
+  <div class="bottom text-center ">
+      <a class="btn btn-lg mt-9 shadow-lg btn-dark fw-bolder" href="/clubs">加入社群</a>
+  </div>
 
-
-
-<div class="bottom">
-    <a class="btn btn-lg btn-welcome" href="/clubs">加入社群</a>
 </div>
