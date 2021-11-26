@@ -23,7 +23,7 @@ end
 if User.find_by(email: "lei@codepower.rocks").nil?
   u = User.new
   u.email = "lei@codepower.rocks"
-  u.name = "user"
+  u.name = "lei"
   u.password = "12345678"
   u.password_confirmation = "12345678"
   u.is_admin = false
@@ -44,7 +44,7 @@ Category.create!(
   name:"专业课"
 )
 
-Product.create!(title: "月度会员卡",
+Product.find_or_create_by(title: "月度会员卡",
   description: "
 本卡可在一个月的有效时期内不限时、不限次，任意进行器械训练，
 享受每周各时段开课的训练课程（瑜珈课、爵士舞、有氧健身操、搏击操、酷炫单车），
@@ -58,7 +58,7 @@ Product.create!(title: "月度会员卡",
   category_id: 1
 )
 
-Product.create!(title: "季度会员卡",
+Product.find_or_create_by(title: "季度会员卡",
   description: "
 本卡可在三个月的有效时期内不限时、不限次，任意进行器械训练，
 享受每周各时段开课的训练课程（瑜珈课、爵士舞、有氧健身操、搏击操、酷炫单车），
@@ -72,7 +72,7 @@ Product.create!(title: "季度会员卡",
   category_id: 1
 )
 
-Product.create!(title: "一年会员卡",
+Product.find_or_create_by(title: "一年会员卡",
   description: "
 本卡可在一年的有效时期内不限时、不限次，任意进行器械训练，
 享受每周各时段开课的训练课程（瑜珈课、爵士舞、有氧健身操、搏击操、酷炫单车），
@@ -87,7 +87,7 @@ Product.create!(title: "一年会员卡",
   category_id: 1
  )
 
-Product.create!(title: "三年会员卡",
+Product.find_or_create_by(title: "三年会员卡",
   description: "
 本卡可在三年的有效时期内不限时、不限次，任意进行训练，
 享受每周各时段开课的训练课程（瑜珈课、爵士舞、有氧健身操、搏击操、酷炫单车），
@@ -102,7 +102,7 @@ Product.create!(title: "三年会员卡",
   category_id: 1
 )
 
-Product.create!(title: "一对一普通私人教练",
+Product.find_or_create_by(title: "一对一普通私人教练",
   description: " （104节课）针对会员的具体情况，结合体测的结果，
 会对会员做出科学的运动计划，并进行一对一的运动指导。
 因指导具有互动性、针对性等特点，可以极大的提升运动的效果和目的、
@@ -113,7 +113,7 @@ Product.create!(title: "一对一普通私人教练",
   category_id: 2
 )
 
-Product.create!(title: "一对一减肥塑形私人教练",
+Product.find_or_create_by(title: "一对一减肥塑形私人教练",
   description: "（104节课）针对各种不同原因引起的身体肥胖或
 是对自己身材不满意会员，结合个人的目标，制定特定的运动计划，
 并进行专人指导，融合各种方式的训练，以期在训练结束时达到本人瘦身
@@ -124,7 +124,7 @@ Product.create!(title: "一对一减肥塑形私人教练",
   category_id: 2
 )
 
-Product.create!(title: "一对一产后恢复私人教练",
+Product.find_or_create_by(title: "一对一产后恢复私人教练",
   description: " （104节课）女性因产后生理上的改变会产生不良姿势
 ，如身体重心前移、颈椎前肩夹骨前拉、骨盆前倾、重心移至脚跟等。
 而产后又因抱宝宝使重心前移，所以易引发产后颈、背、骨盆及脚跟痛。
@@ -137,7 +137,7 @@ Product.create!(title: "一对一产后恢复私人教练",
   category_id: 2
 )
 
-Product.create!(title: "瑜珈导师班",
+Product.find_or_create_by(title: "瑜珈导师班",
   description: "瑜伽是通过调息呼吸、动静平衡、
 身心统一等要诀来刺激身体恢复本身的自觉与自愈，改变人体的亚健康状态。
 它主要通过各种呼吸及各种不同的独特姿势给予头脑、筋肉、内脏、神经、
@@ -149,7 +149,7 @@ Product.create!(title: "瑜珈导师班",
   category_id: 3
  )
 
-Product.create!(title: "健身教练班",
+Product.find_or_create_by(title: "健身教练班",
   description: "随着人们生活的日益提高，对自己身体健康的关
 注也越来越强，更多的人结合自己的时间安排，愿意请私人教练指导。
 通过我们的专业培训，可以掌握基本的人体解剖、生理、医学、营养和运动技能知识，
@@ -159,7 +159,7 @@ Product.create!(title: "健身教练班",
   category_id: 3
 )
 
-Product.create!(title: "搏击操教练班",
+Product.find_or_create_by(title: "搏击操教练班",
   description: "搏击操，是一种有氧操，是Aerobics的又一创新，
 它结合了拳击、泰拳、跆拳道、散手、太极的基本动作，遵循健美操最新编排方法，
 在强有力的音乐节拍下完成的一种身体锻炼方式。
@@ -175,7 +175,7 @@ Product.create!(title: "搏击操教练班",
   category_id: 3
 )
 
-Product.create!(title: "肚皮舞导师班",
+Product.find_or_create_by(title: "肚皮舞导师班",
   description: "肚皮舞起源于中东地区，
 随着变化万千的快速节奏摆动身体，舞姿优美，变化多端，
 能够增加腹部肌肉的力量与身体的柔韧性，
