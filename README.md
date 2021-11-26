@@ -1,11 +1,14 @@
 # README
 
 ## How run
+- Docker
 
 - CSS and JS build
 `./bin/dev`
 - rails server
 `rails s`
+
+use bootstrap and bootstrap-icons
 
 * Ruby version
 ```

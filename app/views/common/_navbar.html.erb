@@ -1,43 +1,88 @@
-<div id="nav" class="container-fluid sticky-top">
-  <nav class="navbar navbar-expand-md navbar-dark w-75 mx-auto fs-6 fw-bolder align-items-center">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-          <img class="me-2" src="/assets/icon1.png" alt="" width="30" height="30"> <span class="fw-bolder">Fitness</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse align-items-center" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto d-flex align-items-center">
-          <form >
-            <div class="input-group me-3">
-              <input class="form-control" type="search" placeholder="Search" >
-              <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+<nav id="nav"  class="navbar sticky-top text-nowrap px-md-8 px-2 navbar-expand-lg navbar-dark fs-6 fw-bolder align-items-center">
+    <a class="navbar-brand d-flex align-items-center justify-content-between"  href="/">
+        <img class="me-2" src=<%= image_url 'icon1.png' %> width="30" height="30"> <span class="fw-bolder">Fitness</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+      <div class="offcanvas-header bg-dark text-white">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+          <img class="me-2" src=<%= image_url 'icon1.png' %> width="30" height="30"> <span class="fw-bolder">Fitness</span>
+        </h5>
+        <button type="button" class="btn-close btn-close-white text-reset text-white" data-bs-dismiss="offcanvas">
+        </button>
+      </div>
+      <div class="offcanvas-body justify-content-end">
+        <ul class="navbar-nav pe-3 align-items-lg-center align-items-start">
+          <form>
+            <div class="input-group">
+              <input class="form-control py-0" type="search" placeholder="Search" >
+              <button class="btn btn-sm btn-primary" type="submit"><i class="bi bi-search"></i></button>
             </div>
           </form>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown ms-lg-3 ms-0">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
               产品
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li>
+                <%= link_to "所有产品", products_path, class: "dropdown-item" %>
+              </li>
+              <% Category.find_each do |category| %>
+              <li>
+                <%= link_to category.name, products_path(category: category), class: "dropdown-item" %>
+              </li>
+              <% end %>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">会员分享</a>
+            <%= link_to '会员分享'，clubs_path，class: "nav-link active" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">健身知识</a>
+            <%= link_to '健身知识'，articles_path，class: "nav-link active" %>
           </li>
-          <li class="nav-item">
-            <a class="nav-link">购物车</a>
+          <li class="nav-item d-flex align-items-center me-md-4 me-3 list-unstyled">
+            <a class="nav-link mx-0" href="#">
+              <span class="position-relative">
+                购物车
+                <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-pill bg-danger">0<%#= current_cart.products.count %></span>
+                <i class="bi bi-cart-fill position-absolute top-50 start-120 translate-middle"> </i>
+              </span>
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link">Admin</a>
+          <% if current_user %>
+          <li class="nav-item mx-md-2 mx-0 dropdown list-unstyled">
+            <a class="nav-link dropdown-toggle d-flex align-items-center " data-bs-toggle="dropdown" href="#">
+              <img class="rounded-circle me-2" width="20" hight="20" src=<%= image_url('default-avatar') %> alt="" srcset="">
+              <span>
+                <%= current_user.is_admin ? 'Admin':current_user.name  %>
+              </span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item">个人中心</li>
+              <% if current_user.is_admin %>
+              <li class="dropdown-item">管理员面板</li>
+              <% end %>
+              <li class="dropdown-item">
+                <%= button_to  destroy_user_session_path, method: :delete, class: 'btn-danger btn',form: { "data-turbo" => "false" } do %>
+                  <i class="bi bi-box-arrow-in-left"></i> 登出
+                <% end %>
+              </li>
+            </ul>
           </li>
+          <% else %>  
+          <li class="nav-item mx-md-2 d-flex align-items-center">
+            <%= link_to '登录', new_user_session_path, class:"nav-link pe-0" %>
+            <i class="bi bi-box-arrow-in-right"></i>
+          </li>
+          <li class="nav-item mx-md-2 d-flex align-items-center">
+            <%= link_to '注册', new_user_registration_path, class: "nav-link pe-0" %>
+            <i class="bi bi-door-open"></i>
+          </li>
+          <% end %>
         </ul>
       </div>
-  </nav>
-</div>
+    </div>
+</nav>
+
