@@ -10,6 +10,14 @@ GIT
       responders
       warden (~> 1.2.3)
 
+GIT
+  remote: https://github.com/hotwired/turbo-rails
+  revision: 6958e0e2742d4744da80128d178e7255989386a4
+  tag: v0.9.0
+  specs:
+    turbo-rails (0.9.0)
+      rails (>= 6.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -187,8 +195,6 @@ GEM
     stimulus-rails (0.7.3)
       rails (>= 6.0.0)
     thor (1.1.0)
-    turbo-rails (7.1.1)
-      rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     warden (1.2.9)
@@ -229,7 +235,7 @@ DEPENDENCIES
   selenium-webdriver
   sqlite3 (~> 1.4)
   stimulus-rails (>= 0.4.0)
-  turbo-rails (>= 0.7.11)
+  turbo-rails!
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
