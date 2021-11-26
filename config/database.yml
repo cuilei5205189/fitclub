@@ -24,7 +24,6 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  host: localhost
   username: postgres
   password: postgres
   database: production
