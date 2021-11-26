@@ -54,7 +54,7 @@
           <% if current_user %>
           <li class="nav-item mx-md-2 mx-0 dropdown list-unstyled">
             <a class="nav-link dropdown-toggle d-flex align-items-center " data-bs-toggle="dropdown" href="#">
-              <img class="rounded-circle me-2" width="20" hight="20" src=<%= image_url('default-avatar') %> alt="" srcset="">
+              <img class="rounded-circle me-2" width="20" hight="20" src=<%= image_url('default-avatar.jpg') %> alt="" srcset="">
               <span>
                 <%= current_user.is_admin ? 'Admin':current_user.name  %>
               </span>
@@ -74,11 +74,11 @@
             </ul>
           </li>
           <% else %>  
-          <li class="nav-item mx-md-2 d-flex align-items-center">
+          <li class="nav-item mx-md-2 mx-0 d-flex align-items-center">
             <%= link_to '登录', new_user_session_path, class:"nav-link pe-0" %>
             <i class="bi bi-box-arrow-in-right"></i>
           </li>
-          <li class="nav-item mx-md-2 d-flex align-items-center">
+          <li class="nav-item mx-md-2 mx-0 d-flex align-items-center">
             <%= link_to '注册', new_user_registration_path, class: "nav-link pe-0" %>
             <i class="bi bi-door-open"></i>
           </li>
