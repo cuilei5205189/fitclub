@@ -62,7 +62,9 @@
             <ul class="dropdown-menu">
               <li class="dropdown-item">个人中心</li>
               <% if current_user.is_admin %>
-              <li class="dropdown-item">管理员面板</li>
+              <li class="dropdown-item">
+                <%= link_to '管理中心', admin_products_path, class: "nav-link text-dark p-0" %>
+              </li>
               <% end %>
               <li class="dropdown-item">
                 <%= button_to  destroy_user_session_path, method: :delete, class: 'btn-danger btn',form: { "data-turbo" => "false" } do %>
