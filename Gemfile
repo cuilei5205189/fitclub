@@ -50,6 +50,10 @@ group :development, :test do
   gem "debug", ">= 1.0.0", platforms: %i[ mri mingw x64_mingw ]
 end
 
+group :production do
+  gem 'pg'
+end
+
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console", ">= 4.1.0"
@@ -69,3 +73,4 @@ group :test do
 end
 
 gem 'devise', git: 'https://github.com/heartcombo/devise', branch: 'main'
+gem "dotenv-rails", "~> 2.7"
