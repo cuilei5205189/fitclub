@@ -1,7 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: 'fitclub.codepower.rocks', protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'fitclub.codepower.rocks', protocol: 'http' }
+  config.action_mailer.default_url_options = { host: 'immense-escarpment-56755.herokuapp.com', protocol: 'https' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
