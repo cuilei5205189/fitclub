@@ -59,14 +59,16 @@
             <a class="nav-link dropdown-toggle d-flex align-items-center " data-bs-toggle="dropdown" href="#">
               <img class="rounded-circle me-2" width="20" hight="20" src=<%= image_url('default-avatar.jpg') %> alt="" srcset="">
               <span>
-                <%= current_user.is_admin ? 'Admin':current_user.name  %>
+                <%= current_user.is_admin ? 'Admin':current_user.email  %>
               </span>
             </a>
             <ul class="dropdown-menu">
-              <li class="dropdown-item">个人中心</li>
+              <li class="dropdown-item">
+                <%= link_to '个人中心', account_orders_path(current_user), class: "nav-link text-dark p-0" %>
+              </li>
               <% if current_user.is_admin %>
               <li class="dropdown-item">
-                <%= link_to_if  '管理中心', admin_products_path, class: "nav-link text-dark p-0" %>
+                <%= link_to '管理中心', admin_products_path, class: "nav-link text-dark p-0" %>
               </li>
               <% end %>
               <li class="dropdown-item">
