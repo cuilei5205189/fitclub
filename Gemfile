@@ -73,4 +73,8 @@ group :test do
 end
 
 gem 'devise', git: 'https://github.com/heartcombo/devise', branch: 'main'
+gem "simple_form", "~> 5.1"
+gem 'devise-i18n'
+
 gem "dotenv-rails", "~> 2.7"
+
