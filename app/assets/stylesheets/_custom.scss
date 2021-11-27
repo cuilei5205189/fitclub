@@ -133,6 +133,7 @@ $utilities: map-merge(
       values: (
         10: 10%,
         20: 20%,
+        25: 25%,
         30: 30%,
         50: 50%,
         75: 75%,
@@ -153,3 +154,5 @@ $position-values: (
   150: 150%,
   200: 200%,
 );
+
+$offcanvas-horizontal-width:  700px;

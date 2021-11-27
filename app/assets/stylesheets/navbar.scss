@@ -2,8 +2,16 @@
   backdrop-filter: saturate(.5) blur(5px);
   -webkit-backdrop-filter: saturate(.5) blur(5px);
   background: rgba(0, 0, 0, 0.3) !important;
+  z-index: 10005;
+  // top: 0;
+  // position: -webkit-sticky;
+  // position: sticky;
+  .offcanvas {
+    position: unset;
+  }
   @media (max-width: 868px) {
      .offcanvas {
+      position: inherit;
       height: 100vh;
       background-color: $dark;
       overflow-y: visible;

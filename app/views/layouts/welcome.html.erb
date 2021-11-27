@@ -13,9 +13,11 @@
   </head>
 
   <body>
-    <%= render "common/navbar" %>
-    <%= render "common/flash" %>
-    <%= yield %>
+     <%= render "common/navbar" %>
+    <div id="content">
+      <%= render "common/flash" %>
+      <%= yield %>
+    </div>
     <%= render "common/footer" %>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

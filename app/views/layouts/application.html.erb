@@ -13,8 +13,10 @@
 
   <body>
     <%= render "common/navbar" %>
-    <%= render "common/flash" %>
-    <%= yield %>
+    <div id="content">
+      <%= render "common/flash" %>
+      <%= yield %>
+    </div>
     <%= render "common/footer" %>
   </body>
 </html>

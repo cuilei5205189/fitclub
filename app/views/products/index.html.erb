@@ -6,8 +6,10 @@
   <% @products.each do |product| %>
     <div class="col-lg-3 col-md-4 col-8 gx-5">
       <div class="product text-center">
-        <img class="w-100 shadow mt-5 mb-3 rounded-3 p-1" src="https://via.placeholder.com/200x200.png" alt="">
-        <%= link_to product.title, product_path(product), class: 'text-decoration-none text-dark fw-normal' %>
+        <%= link_to product_path(product), class: 'text-decoration-none text-dark fw-normal' do %>
+          <img class="w-100 img-thumbnail shadow mt-5 mb-3 rounded-3 p-1" src="https://via.placeholder.com/200x200.png" alt="">
+          <%= product.title %>
+        <% end %>
         <span class='d-block'>￥ <%= product.price %></span>
       </div>
     </div>

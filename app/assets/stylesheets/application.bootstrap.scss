@@ -5,8 +5,17 @@
 @import './welcome.scss';
 @import './footer.scss';
 @import './navbar.scss';
+@import './products.scss';
+@import './devise.scss';
 
-html, body {
-  max-width: 100%;
+
+body, html {
+  width: 100%;
   overflow-x: hidden;
+  // overflow-x: scroll;
+  // height: 100vh;
+}
+
+#content {
+  margin-top: 60px; //remove fiexed navbar height
 }

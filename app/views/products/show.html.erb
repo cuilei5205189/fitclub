@@ -1,32 +1,59 @@
-<div class="container-fluid row justify-content-center">
-  <div class="col-lg-6 col-11 d-flex justify-content-center">
-    <img src="https://via.placeholder.com/400x400.png" alt="" srcset="">
+<div id="product-show" class="container-fluid mt-8 row justify-content-center">
+  <div class="col-lg-4 col-11 d-flex justify-content-center">
+    <img class="img-thumbnail" src="https://via.placeholder.com/400x400.png" alt="" srcset="">
   </div>
-  <div class="col-lg-6 col-11 justify-content-center">
+  <div class="col-lg-4 col-11 justify-content-center">
     <h3>
       <%= @product.title %>
     </h3>
+    <hr>
     <form  action="/" method="post">
-    <dl class="row">
-      <dt class="col-sm-3">售价</dt>
-      <dd class="col-sm-9">
-        <%= @product.price %>
-      </dd>
-      <dt class="col-sm-3">服务</dt>
-      <dd class="col-sm-9">专业教练指导 | 专业的器械设备 | 质量保证</dd>
-      <dt class="col-sm-3">库存</dt>
-      <dd class="col-sm-9"> <%= @product.quantity %> </dd>
-      <dt class="col-sm-3">数量</dt>
-      <dd class="col-sm-9">
-        <div class="input-group w-20">
-          <button class="btn btn-sm btn-outline-secondary" type="button">-</button>
-          <input type="text" name="quantity" value="1" class="lh-1 py-0  px-0 form-control text-center" placeholder="1">
-          <button class="btn btn-sm btn-outline-secondary" type="button">+</button>
-        </div>
-      </dd>
-      <input type="submit" value="加入购物车">
-      <input type="submit" value="立即购买">
+    <dl class="row text-nowrap">
+        <dt class="col-3 col-md-3">售价</dt>
+        <dd class="col-9 col-md-8 text-danger lh-1 fs-4 fw-bolder">
+          ￥ <%= @product.price %>
+        </dd>
+      <dt class="col-3">服务</dt>
+      <dd class="col-8">专业教练指导 | 专业的器械设备 | 质量保证</dd>
+      <hr>
+      <dt class="col-3 col-md-3">库存</dt>
+      <dd class="col-9 col-md-8"> <%= @product.quantity %> </dd>
+      <div class="quanlity d-flex align-items-center mb-4">
+        <dt class="col-3 col-md-3">数量</dt>
+        <dd class="col-8 col-md-8 mb-0">
+          <div class="input-group">
+            <button class="btn btn-sm btn-outline-secondary" type="button">-</button>
+            <input type="text" name="quantity" value="1" class="m-0 py-0  px-0 form-control text-center" placeholder="1">
+            <button class="btn btn-sm btn-outline-secondary" type="button">+</button>
+          </div>
+        </dd>
+      </div>
+      <input type="submit" value="加入购物车" class="mt-2 mb-3 btn btn-danger rounded-pill">
+      <input type="submit" value="立即购买" class="btn btn-outline-dark rounded-pill">
+      <div class="info mt-3">
+       <i class="bi bi-heart-fill"></i> <span>收藏人气</span>
+      </div>
     </dl>
     </form>
+  </div>
+  <div class="info col-10 col-md-8">
+    <h4 class="my-5 text-center">商品详情</h4>
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab">介绍</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab">评论</button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home">
+        <h5 class="my-3">课程介绍</h5>
+        <p class="fs-6 my-3">
+          <%= @product.description %>
+        </p>
+      </div>
+      <div class="tab-pane fade" id="nav-profile">
+        <h5 class="my-3">暂无评论</h5>
+      </div>
+    </div>
   </div>
 </div>
