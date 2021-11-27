@@ -1,7 +1,7 @@
 #welcome {
   .jumbotron {
     margin-top: -60px;
-    background-image: url("header.jpg");
+    background-image: url("header");
     background-repeat: no-repeat;
     background-size: cover;
     height: 700px;
@@ -29,6 +29,6 @@
   
   .bottom {
     height: 280px;
-    background: url("bottom1.jpg") no-repeat scroll top center/ cover;
+    background: url("bottom1") no-repeat scroll top center/ cover;
   }
 }
