@@ -78,3 +78,5 @@ gem 'devise-i18n'
 
 gem "dotenv-rails", "~> 2.7"
 
+
+gem "faker", "~> 2.19"

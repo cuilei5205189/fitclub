@@ -110,6 +110,8 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.10.0)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.8.11)
@@ -238,6 +240,7 @@ DEPENDENCIES
   devise!
   devise-i18n
   dotenv-rails (~> 2.7)
+  faker (~> 2.19)
   jbuilder (~> 2.7)
   jsbundling-rails (~> 0.1.0)
   pg
