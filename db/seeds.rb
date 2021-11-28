@@ -7,9 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Initialize Admin User
-if User.find_by(email: "allen5205189@gmail.com").nil?
+if User.find_by(email: "admin@gmail.com").nil?
   a = User.new
-  a.email = "allen5205189@gmail.com"
+  a.email = "admin@gmail.com"
   a.name = "admin"
   a.password = "12345678"
   a.password_confirmation = "12345678"
@@ -20,9 +20,9 @@ else
   puts "Admin 已经建立过了，脚本跳过该步骤。"
 end
 
-if User.find_by(email: "lei@codepower.rocks").nil?
+if User.find_by(email: "user@gmail.com").nil?
   u = User.new
-  u.email = "lei@codepower.rocks"
+  u.email = "user@gmial.com"
   u.name = "lei"
   u.password = "12345678"
   u.password_confirmation = "12345678"
@@ -190,3 +190,21 @@ Product.find_or_create_by(title: "肚皮舞导师班",
   category_id: 3
 )
 
+# user faker
+User.create(
+  email: Faker::Internet.email,
+  password: "123456",
+  password_confirmation: "123456",
+  name: Faker::Name.name,
+  avatar: Faker::Avatar.image,
+  address: Faker::Address.street_address,
+
+)
+
+# comment faker
+Comment.create(
+  user_id: rand(1..10),
+  : 1,
+  
+
+Club.create(title: Faker::Company.name,

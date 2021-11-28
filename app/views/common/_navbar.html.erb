@@ -57,14 +57,14 @@
           <% if current_user %>
           <li class="nav-item mx-md-2 mx-0 dropdown list-unstyled">
             <a class="nav-link dropdown-toggle d-flex align-items-center " data-bs-toggle="dropdown" href="#">
-              <img class="rounded-circle me-2" width="20" hight="20" src=<%= image_url('default-avatar.webp') %> alt="" srcset="">
+              <img class="rounded-circle me-2" width="30" hight="30" src=<%= current_user.avatar_url || current_user.default_avatar_url %> alt="" srcset="">
               <span>
-                <%= current_user.is_admin ? 'Admin':current_user.email  %>
+                <%= current_user.is_admin ? 'Admin':current_user.name  %>
               </span>
             </a>
             <ul class="dropdown-menu">
               <li class="dropdown-item">
-                <%= link_to '个人中心', account_orders_path(current_user), class: "nav-link text-dark p-0" %>
+                <%= link_to '个人中心', account_orders_path, class: "nav-link text-dark p-0" %>
               </li>
               <% if current_user.is_admin %>
               <li class="dropdown-item">

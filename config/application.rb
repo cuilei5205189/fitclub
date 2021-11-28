@@ -12,6 +12,7 @@ module Fitness
     config.load_defaults 7.0
     config.i18n.default_locale = "zh-CN"
     config.time_zone = "Beijing"
+    config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
 
     # Configuration for the application, engines, and railties goes here.
     #

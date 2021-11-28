@@ -57,7 +57,9 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console", ">= 4.1.0"
-
+  gem "pry-rails", "~> 0.3.9"
+  gem "pry-byebug", "~> 3.8"
+ 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler", ">= 2.3.3"
 
@@ -80,3 +82,7 @@ gem "dotenv-rails", "~> 2.7"
 
 
 gem "faker", "~> 2.19"
+
+gem "rails-i18n", "~> 6.0"
+
+

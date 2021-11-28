@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FitClub ｜ 个人中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true, type: "module" %>
+    <link rel="shortcut icon" href=<%= image_url 'icon1.webp'%>>
+  </head>
+<body>
+    <%= render "common/navbar" %>
+    <div id="content">
+      <%= render "common/flash" %>
+      <div class="container">
+         <div class="row">
+          <div class="">
+            <br>
+            <h5>我的账号</h5>
+            <p><%= current_user.email %></p>
+            <hr>
+            <ul class="">
+              <li><%= link_to("我的订单", account_orders_path) %></li>
+              <li><%= link_to("收藏商品", account_products_path) %></li>
+            </ul>
+
+            <hr>
+            <ul class="">
+              <li><%= link_to("编辑账户", edit_account_user_path(current_user)) %></li>
+            </ul>
+            <hr>
+            <ul class="">
+              <li><%= link_to("社区", clubuser_clubs_path) %></li>
+            </ul>
+          </div>
+          <div class="col-md-10">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render "common/footer" %>
+</body>
+</html>
