@@ -12,7 +12,7 @@
     "sass": "^1.43.4"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --minify --sourcemap --outdir=app/assets/builds",
-    "build:css": "sass --embed-source-map --load-path=node_modules --style=compressed ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css"
+    "build": "esbuild app/javascript/*.* --bundle --minify --outdir=app/assets/builds",
+    "build:css": "sass --load-path=node_modules --style=compressed ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css"
   }
 }
