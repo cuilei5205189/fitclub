@@ -7,14 +7,27 @@
     background-size: cover;
     height: 700px;
   }
-  
   .btn {
-    transition: all .5s;
+    transition: all .8s;
     &:hover {
       background-color: $gray-100 !important;
       color: $dark !important;
     }
+    animation: pulse 2s infinite alternate;
+    transform-origin: center;
+    @keyframes pulse {
+      0% {
+        transform: scale(.9);
+      }
+      70% {
+        transform: scale(1.1);
+      }
+        100% {
+        transform: scale(.9);
+      }
+    }
   }
+  
   @media (max-width: 568px) {
     .shadowandborder {
       box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;

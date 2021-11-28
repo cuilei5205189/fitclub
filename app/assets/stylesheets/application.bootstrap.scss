@@ -19,3 +19,18 @@ body, html {
 #content {
   margin-top: 60px; //remove fiexed navbar height
 }
+
+.slideup {
+  animation: slideup 0.5s;
+  transform-origin: bottom;
+}
+
+// remove animation
+@keyframes slideup {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-200%);
+  }
+}

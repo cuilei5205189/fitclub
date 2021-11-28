@@ -1,24 +1,23 @@
 #nav {
+  height: 60px;
   font-style: 100px;
   backdrop-filter: saturate(.5) blur(5px);
   -webkit-backdrop-filter: saturate(.5) blur(5px);
   background: rgba(0, 0, 0, 0.3) !important;
   z-index: 10005;
-  // top: 0;
-  // position: -webkit-sticky;
-  // position: sticky;
   .offcanvas {
     position: unset;
   }
-  @media (max-width: 868px) {
-     .offcanvas {
-      position: inherit;
-      height: 100vh;
+
+  @media (max-width: 991px) {
+    .offcanvas {
       background-color: $dark;
-      overflow-y: visible;
       backdrop-filter: saturate(.5) blur(5px);
       -webkit-backdrop-filter: saturate(.5) blur(5px);
-      width: 30vh;
+      height: 100vh;
+      width: 200px;
+      overflow-y: visible;
+      position: inherit;
      }
   }
 }
