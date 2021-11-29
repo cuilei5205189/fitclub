@@ -1,3 +1,4 @@
+<script src=""></script>
 <div id="product-show" class="container-fluid mt-8 row justify-content-center">
   <div class="col-lg-4 col-11 d-flex justify-content-center">
     <img class="img-thumbnail" src="https://via.placeholder.com/400x400.png" alt="" srcset="">
@@ -7,34 +8,35 @@
       <%= @product.title %>
     </h3>
     <hr>
-    <form  action="/" method="post">
-    <dl class="row text-md-nowrap">
-        <dt class="col-3 col-md-3">售价</dt>
-        <dd class="col-9 col-md-8 text-danger lh-1 fs-4 fw-bolder">
-          ￥ <%= @product.price %>
-        </dd>
-      <dt class="col-3">服务</dt>
-      <dd class="col-8">专业教练指导 | 专业的器械设备 | 质量保证</dd>
-      <hr>
-      <dt class="col-3 col-md-3">库存</dt>
-      <dd class="col-9 col-md-8"> <%= @product.quantity %> </dd>
-      <div class="quanlity d-flex align-items-center mb-4">
-        <dt class="col-3 col-md-3">数量</dt>
-        <dd class="col-8 col-md-8 mb-0">
-          <div class="input-group">
-            <button class="btn btn-sm btn-outline-secondary" type="button">-</button>
-            <input type="text" name="quantity" value="1" class="m-0 py-0  px-0 form-control text-center" placeholder="1">
-            <button class="btn btn-sm btn-outline-secondary" type="button">+</button>
-          </div>
-        </dd>
-      </div>
-      <input type="submit" value="加入购物车" class="mt-2 mb-3 btn btn-danger rounded-pill">
-      <input type="submit" value="立即购买" class="btn btn-outline-dark rounded-pill">
-      <div class="info mt-3">
-       <i class="bi bi-heart-fill"></i> <span>收藏人气</span>
-      </div>
-    </dl>
-    </form>
+    <%=  form_with(url: add_to_cart_product_path(@product), method: "post") do |f| %>
+      <dl class="row text-md-nowrap">
+          <dt class="col-3 col-md-3">售价</dt>
+          <dd class="col-9 col-md-8 text-danger lh-1 fs-4 fw-bolder">
+            ￥ <%= @product.price %>
+          </dd>
+        <dt class="col-3">服务</dt>
+        <dd class="col-8">专业教练指导 | 专业的器械设备 | 质量保证</dd>
+        <hr>
+        <dt class="col-3 col-md-3">库存</dt>
+        <dd class="col-9 col-md-8"> <%= @product.quantity %> </dd>
+        <div id="quanlity" class="quanlity d-flex align-items-center mb-4">
+          <dt class="col-3 col-md-3">数量</dt>
+          <dd class="col-8 col-md-8 mb-0">
+            <div class="input-group">
+              <button class="btn btn-sm btn-outline-secondary btn_cancel_quanlity" type="button">-</button>
+              <input type="text" name="quantity" value="1" class="m-0 py-0  px-0 form-control text-center" placeholder="1">
+              <button class="btn btn-sm btn-outline-secondary btn_add_quanlity" type="button">+</button>
+            </div>
+          </dd>
+        </div>
+        <%= f.submit "加入购物车", class: "mt-2 mb-3 btn btn-danger rounded-pill" %>
+        <%= f.submit "立即购买", class: "btn btn-outline-dark rounded-pill"%>
+        <div class="info mt-3">
+          <i class="bi bi-heart-fill"></i> <span>收藏人气</span>
+        </div>
+      </dl>
+    <% end %>
+    
   </div>
   <div class="info col-10 col-md-8">
     <h4 class="my-5 text-center">商品详情</h4>
@@ -57,3 +59,4 @@
     </div>
   </div>
 </div>
+<%= javascript_include_tag "quanlity_add", "data-turbo-track": "reload", defer: true, type: "module" %>

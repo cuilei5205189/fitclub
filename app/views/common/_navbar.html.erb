@@ -49,7 +49,7 @@
             <a href="/carts" class="<%= class_names('nav-link mx-0', { active: current_page?(carts_path) }) %>" >
               <span class="position-relative">
                 购物车
-                <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-pill bg-danger">0<%#= current_cart.products.count %></span>
+                <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-pill bg-danger"><%= current_cart.products.count %></span>
                 <i class="bi bi-cart-fill position-absolute top-50 start-120 translate-middle"> </i>
               </span>
             </a>
@@ -57,7 +57,7 @@
           <% if current_user %>
           <li class="nav-item mx-md-2 mx-0 dropdown list-unstyled">
             <a class="nav-link dropdown-toggle d-flex align-items-center " data-bs-toggle="dropdown" href="#">
-              <img class="rounded-circle me-2" width="30" hight="30" src=<%= current_user.avatar_url || current_user.default_avatar_url %> alt="" srcset="">
+              <img class="rounded-circle me-2" width="30" hight="30" src=<%= current_user.avatar_url %> alt="" srcset="">
               <span>
                 <%= current_user.is_admin ? 'Admin':current_user.name  %>
               </span>
