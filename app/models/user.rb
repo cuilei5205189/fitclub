@@ -5,7 +5,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  has_one :cart
+  
   def avatar_url
     if avatar.attached?
       Rails.application.routes.url_helpers.rails_blob_path(avatar, only_path: true)
@@ -13,7 +14,10 @@ class User < ApplicationRecord
       default_avatar_url
     end
   end
+
+  private
   def default_avatar_url
     "https://picsum.photos/200/200?random=#{rand(1..100)}"
   end
+  
 end

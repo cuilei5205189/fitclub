@@ -202,9 +202,9 @@ User.create(
 )
 
 # comment faker
-Comment.create(
-  user_id: rand(1..10),
-  : 1,
+# Comment.create(
+#   user_id: rand(1..10),
+#   : 1,
   
 
-Club.create(title: Faker::Company.name,
+# Club.create(title: Faker::Company.name,
