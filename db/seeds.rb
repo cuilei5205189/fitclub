@@ -51,7 +51,7 @@ end
 (1..12).each do |i|
   u = User.find(i)
   if Rails.env.production?
-    u.avatar.attach(io: File.open(Rails.root.join("assets/images/default-avatar.webp")), filename: "default-avatar.webp")
+    u.avatar.attach(io: File.open("/app/app/assets/images/default-avatar.webp"), filename: "default-avatar.webp")
   else
     u.avatar.attach(io: File.open(Rails.root.join("app/assets/images/default-avatar.webp")), filename: "default-avatar.webp")
   end
@@ -219,7 +219,7 @@ Product.find_or_create_by(title: "肚皮舞导师班",
   p = Product.find(n)
   # if rails enviroment is production
   if Rails.env.production?
-    p.image.attach(io: File.open(Rails.root.join("assets/images/product#{n}.webp")), filename: "product#{n}.webp")
+    p.image.attach(io: File.open("/app/app/assets/images/product#{n}.webp"), filename: "product#{n}.webp")
   else
     p.image.attach(io: File.open(Rails.root.join("app/assets/images/product#{n}.webp")), filename: "product#{n}.webp")
   end
