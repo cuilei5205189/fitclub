@@ -45,17 +45,18 @@ Rails.application.routes.draw do
   end
 
   resources :carts do
+    collection do
+      delete :clean
+      get :checkout
+    end
+  end
+  
+  resources :cart_items do
     member do
       post :add_quantity
       post :remove_quantity
     end
-    collection do
-      delete :clean
-      post :checkout
-    end
   end
-
-  resources :cart_items
 
   resources :orders do
     member do
