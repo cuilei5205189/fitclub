@@ -243,19 +243,19 @@ CartItem.create(
       product_id: rand(1..12)
   )
 
-  Order.create(
-      user_id: rand(1..20),
-      token: Faker::Number.number(digits: 10),
-      is_paid: false,
-      phone_number: Faker::PhoneNumber.phone_number,
-      aasm_state: "paid"
-  )
+  # Order.create(
+  #     user_id: rand(1..20),
+  #     token: Faker::Number.number(digits: 10),
+  #     is_paid: false,
+  #     phone_number: Faker::PhoneNumber.phone_number,
+  #     aasm_state: "paid"
+  # )
 
-  ProductList.create(
-      order_id: rand(1..30),
-      product_id: rand(1..11),
-      quantity: rand(1..3),
-      product_price: rand(2000..10000)
-  )
+  # ProductList.create(
+  #     order_id: rand(1..30),
+  #     product_id: rand(1..11),
+  #     quantity: rand(1..3),
+  #     product_price: rand(2000..10000)
+  # )
 end
 
