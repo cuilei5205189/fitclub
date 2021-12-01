@@ -1,2 +1,37 @@
-<h1>Carts#index</h1>
-<p>Find me in app/views/carts/index.html.erb</p>
+<div class="container">
+  <div class="col-lg-12 col-12">
+    <div class="cart-title">
+      <h3>购物车</h3>
+      <p>您的购物车目前共有
+        <span class="badge bg-info">
+          <%= current_cart.products.count %>
+        </span>  个商品。
+      </p>
+    </div>
+    <hr>
+    <div id="change" class="col-md-8 pb-2">
+      <div class="shopping-cart">
+        <% current_cart.cart_items.each do |cart_item| %>
+          <%= render :partial => "cart_item", :locals => {:cart_item => cart_item} %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3 pb-2">
+      <aside>
+        <h3 class="toolbar-title">购物车总价:</h3>
+        <h4 id="change-total-price" class="amount">¥ <%= current_cart.total_price %></h4>
+        <p class="tips">* 请您确认购买商品无误后，前往结账页填写您的订单信息</p>
+        <div class="btns d-flex">
+          <% if current_cart.cart_items.present? %>
+            <%= button_to("清空购物车", clean_carts_path, class: "btn btn-info btn-block me-3", method: :delete, data: { confirm: "Are you sure?" }) %>
+            <%= link_to("结帐", checkout_carts_path, class: "btn btn-danger btn-block") %>
+          <% else %>
+            <%= link_to("清空购物车", '#', class: "btn btn-primary btn-info btn-block disabled me-3") %>
+            <%= link_to("结帐", '#', class: "btn btn-danger btn-block disabled") %>
+          <% end %>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+<br><br><br>

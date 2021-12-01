@@ -7,7 +7,11 @@
     <div class="col-lg-3 col-md-4 col-8 gx-5">
       <div class="product text-center">
         <%= link_to product_path(product), class: 'text-decoration-none text-dark fw-normal' do %>
-          <img class="w-100 img-thumbnail shadow mt-5 mb-3 rounded-3 p-1" src="https://via.placeholder.com/200x200.png" alt="">
+        <% if product.image_url %>
+         <img class="w-100 img-thumbnail shadow mt-5 mb-3 rounded-3 p-1" src=<%= product.image_url %> alt="">
+        <% else %>
+          <img class=" img-thumbnail shadow mt-5 mb-3 rounded-3 p-1" width="300px" height="300px" src="<%= image_url("product#{product.id}.webp") %>" alt="">
+        <% end %>
           <%= product.title %>
         <% end %>
         <span class='d-block'>￥ <%= product.price %></span>

@@ -1,7 +1,7 @@
 <script src=""></script>
 <div id="product-show" class="container-fluid mt-8 row justify-content-center">
   <div class="col-lg-4 col-11 d-flex justify-content-center">
-    <img class="img-thumbnail" src="https://via.placeholder.com/400x400.png" alt="" srcset="">
+    <img class="img-thumbnail" src=<%= @product.image_url %> alt="" srcset="">
   </div>
   <div class="col-lg-4 col-11 justify-content-center">
     <h3>
@@ -32,7 +32,7 @@
         <%= f.submit "加入购物车", class: "mt-2 mb-3 btn btn-danger rounded-pill" %>
         <%= f.submit "立即购买", class: "btn btn-outline-dark rounded-pill"%>
         <div class="info mt-3">
-          <i class="bi bi-heart-fill"></i> <span>收藏人气</span>
+          <i class="bi bi-heart-fill"></i> <span>收藏人气 </span><span class="fw-bolder">(<%= @product.collectors.count %>)</span>
         </div>
       </dl>
     <% end %>
@@ -41,22 +41,38 @@
   <div class="info col-10 col-md-8">
     <h4 class="my-5 text-center">商品详情</h4>
     <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
         <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab">介绍</button>
         <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab">评论</button>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-home">
-        <h5 class="my-3">课程介绍</h5>
+        <h5 class="my-3 text-center">课程介绍</h5>
         <p class="fs-6 my-3">
           <%= @product.description %>
         </p>
       </div>
-      <div class="tab-pane fade" id="nav-profile">
-        <h5 class="my-3">暂无评论</h5>
+      <div class="tab-pane fade text-center" id="nav-profile">
+      <% if @product.comments.present? %>
+        <% @product.comments.each do |comment| %>
+          <div class="media mt-5">
+            <img src=<%= comment.user.avatar_url %> alt="" style="width:30px;height:30px">
+            <div class="media-body">
+              <h5 class="mt-0">
+                <%= comment.user.name %>
+              </h5>
+              <p class="fs-6">
+                <%= comment.content %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+      <h5 class="my-3">暂无评论</h5>
+      <% end %>
       </div>
     </div>
   </div>
 </div>
-<%= javascript_include_tag "quanlity_add", "data-turbo-track": "reload", defer: true, type: "module" %>
+<%#= javascript_include_tag "quanlity_add", "data-turbo-track": "reload", defer: true, type: "module" %>

@@ -1,0 +1,30 @@
+<div style="padding:10px; float:right;">
+
+  <% case order.aasm_state %>
+  <% when "order_placed" %>
+    <%= button_to("取消订单",
+                cancel_admin_order_path(order),
+                class: "btn btn-default btn-sm", method: :post) %>
+
+  <% when "paid" %>
+    <%= button_to("取消订单",
+                cancel_admin_order_path(order),
+                class: "btn btn-default btn-sm", method: :post) %>
+    <%= button_to("激活",
+                activate_admin_order_path(order),
+                class: "btn btn-default btn-sm", method: :post) %>
+
+  <% when "activated" %>
+    <%= button_to("退货",
+                return_admin_order_path(order),
+                class: "btn btn-default btn-sm", method: :post) %>
+
+  <% when "order_cancelled" %>
+    <span class="label label-default">订单已取消</span>
+
+  <% when "good_returned" %>
+    <span class="label label-default">已退货</span>
+
+  <% end %>
+
+</div>

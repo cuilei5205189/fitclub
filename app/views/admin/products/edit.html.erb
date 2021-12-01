@@ -1,2 +1,8 @@
-<h1>Admin::Products#edit</h1>
-<p>Find me in app/views/admin/products/edit.html.erb</p>
+<h2> Edit Product </h2>
+
+<%= simple_form_for [:admin, @product] do |f| %>
+
+  <%= render :partial => "form", :locals => { :f => f } %>
+
+<% end %>
+<br><br>

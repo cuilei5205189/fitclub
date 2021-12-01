@@ -1,0 +1,67 @@
+<div class="container">
+  <h2 style="margin-left:30px">结帐</h2>
+  <p style="margin-left:30px">本次下单共
+    <span class="badge" style="background-color: #77cde3;font-size:13px;vertical-align:center;">
+      <%= current_cart.products.count %>
+    </span>  个商品。
+  </p>
+  <br>
+  <div class="col-md-12 col-xs-12">
+    <%= simple_form_for @order do |f| %>
+      <div class="col-md-8 col-xs-12">
+        <legend>订购人信息</legend>
+          <div class="form-group col-lg-6 col-xs-6">
+            <%= f.input :billing_name, input_html: {value: current_user.name}, :label => "订购人姓名" %>
+          </div>
+
+          <div class="form-group col-lg-6 col-xs-6">
+            <%= f.input :phone_number, input_html: {value: current_user.phone }, :label => "联系电话" %>
+          </div>
+
+          <legend>订单明细</legend>
+          <table class="table table-bordered table-striped table-hover table-condensed">
+            <thead>
+              <tr>
+                <th width="50%">商品名称</th>
+                <th>单价</th>
+                <th>数量</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% current_cart.cart_items.each do |cart_item| %>
+                <tr>
+                  <td>
+                    <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
+                  </td>
+                  <td>
+               			<% if cart_item.product.discount.present? %>
+                      <%= cart_item.product.price * cart_item.product.discount / 100 %>
+                    <% else %>
+                      <%= cart_item.product.price %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= cart_item.quantity %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
+
+      <div class="col-md-3 col-md-offset-1 col-xs-12">
+        <aside>
+          <h3 class="toolbar-title">购物车总价:</h3>
+          <h4 class="amount">¥ <%= current_cart.total_price %></h4>
+          <p class="tips">* 请确认您的订单信息无误，下单后可前往您的注册邮箱查看订单确认信。</p>
+          <%= link_to("返回购物车", carts_path, class: "btn btn-info btn-block") %>
+          <%= f.submit "确认下单", class: "btn btn-danger btn-block", data: {disable_with: "Submitting..."} %>
+        </aside>
+      </div>
+
+    <% end %>
+
+    <hr>
+
+  </div>
+</div>

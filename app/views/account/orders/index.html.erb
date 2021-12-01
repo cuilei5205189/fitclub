@@ -1,2 +1,32 @@
-<h1>Account::Orders#index</h1>
-<p>Find me in app/views/account/orders/index.html.erb</p>
+<div class="row">
+  <div class="col-md-12">
+    <% if @orders.count >0 %>
+      <h2 class="text-center"> 我的订单 </h2>
+      <div id="account-orders" class="table">
+        <table class="table table-striped list">
+          <thead>
+            <tr>
+              <th>订单序号</th>
+              <th>订单详情</th>
+              <th>生成时间</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <% @orders.each do |order| %>
+            <tr>
+              <td> <%= link_to(order.id, order_path(order.token)) %> </td>
+              <td> <%= render_order_tate(order) %></td>
+              <td> <%= order.created_at.strftime("%Y-%m-%d") %> </td>
+            </tr>
+            <% end %>
+
+          </tbody>
+        </table>
+      </div>
+      <% else %>
+         <h2 class="text-center my-5">你还没有下单喔 <span class="fa fa-frown-o"></span></h2>
+         <p class="text-center"><a class="btn btn-lg btn-dark" href="/products">马上选购</a></p>
+      <% end %>
+  </div>
+</div>

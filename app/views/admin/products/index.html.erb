@@ -1,2 +1,67 @@
-<h1>Admin::Products#index</h1>
-<p>Find me in app/views/admin/products/index.html.erb</p>
+<h2> Product List </h2>
+<div class="pull-right" style="padding-bottom: 20px;">
+  <%= link_to("新增产品", new_admin_product_path, class: "btn btn-primary mt-3") %>
+</div>
+<div id="admin-product-table">
+  <table class="table list">
+    <thead>
+      <th scope="col"> id </th>
+      <th scope="col"> 产品 </th>
+      <th scope="col"> 名称 </th>
+      <th scope="col"> 价格 </th>
+      <th scope="col"> 库存 </th>
+      <th scope="col"> 管理选项 </th>
+
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <th scope="row"> <%= product.id %> </th>
+          <td>
+            <% if product.image.present? %>
+              <%= image_tag(product.image_url, class: "img-thumbnail w-100") %>
+            <% else %>
+              <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "img-thumbnail w-100") %>
+            <% end %>
+          </td>
+          <td>
+            <%= render_product_status(product) %>
+            <%= product.title %>
+          </td>
+          <td>
+            <% if product.discount.present? %>
+              ￥<%= product.price = product.price * product.discount/100 %>
+            <% else %>
+              ￥<%= product.price %>
+            <% end %>
+          </td>
+          <td>
+            <%= product.quantity %>
+          </td>
+          <td>
+            <div class="d-flex justify-content-evenly">
+              <%= link_to edit_admin_product_path(product),class:"btn btn-xs btn-warning" do %>
+                <i class="bi bi-pencil"></i>
+              <% end %>
+
+              <%= link_to move_up_admin_product_path(product), class:"btn btn-xs btn-info", method: :patch do %>
+                <i class="bi bi-arrow-up"></i>
+              <% end %>
+              <%= link_to move_down_admin_product_path(product),class:"btn btn-xs btn-info", method: :patch do%>
+                <i class="bi bi-arrow-down"></i>
+              <% end %>
+              <%= button_to admin_product_path(product), class:"btn btn-xs  btn-danger" ,:method => :delete, data: { controller:  "confirmation", "message-value": "Are you sure?", action: "submit->confirmation#confirm" }  do%>
+                <i class="bi bi-trash"></i>
+              <% end %>
+              <% if product.is_public %>
+                    <%= button_to hide_admin_product_path(product), :method => :post,  :class => "btn btn-xs btn-warning" do %><i class="bi bi-eye-slash"></i><% end %>
+              <% else %>
+                    <%= button_to publish_admin_product_path(product) , :method => :post, :class => "btn btn-xs btn-success" do %><i class="bi bi-eye-fill"></i><% end %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
