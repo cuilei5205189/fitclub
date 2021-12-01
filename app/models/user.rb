@@ -6,6 +6,23 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :cart
+  has_many :orders
+  has_many :comments
+
+  has_many :favours
+  has_many :collections, through: :favours, source: :product
+
+  def is_collect_of?(product)
+    collections.include?(product)
+  end
+
+  def collect!(product)
+    collections << product
+  end
+
+  def un_collect!(product)
+    collections.delete(product)
+  end
   
   def avatar_url
     if avatar.attached?
@@ -17,7 +34,7 @@ class User < ApplicationRecord
 
   private
   def default_avatar_url
-    "https://picsum.photos/200/200?random=#{rand(1..100)}"
+    "https://picsum.photos/30/30?random=#{rand(1..100)}"
   end
   
 end
