@@ -3,5 +3,8 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
+import ConfirmationController from "./confirmation_controller.js"
+application.register("confirmation", ConfirmationController)
+
+import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
