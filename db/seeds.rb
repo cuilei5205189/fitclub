@@ -11,6 +11,7 @@ if User.find_by(email: "admin@gmail.com").nil?
   a = User.new
   a.email = "admin@gmail.com"
   a.name = "admin"
+  a.phone = Faker::PhoneNumber.phone_number
   a.password = "12345678"
   a.password_confirmation = "12345678"
   a.is_admin = true
@@ -22,8 +23,9 @@ end
 
 if User.find_by(email: "user@gmail.com").nil?
   u = User.new
-  u.email = "user@gmial.com"
+  u.email = "user@gmail.com"
   u.name = "lei"
+  u.phone = Faker::PhoneNumber.phone_number
   u.password = "12345678"
   u.password_confirmation = "12345678"
   u.is_admin = false
@@ -31,6 +33,24 @@ if User.find_by(email: "user@gmail.com").nil?
   puts "User 已经建立好了，帐号为#{u.email}, 密码为#{u.password}"
 else
   puts "User 已经建立过了，脚本跳过该步骤。"
+end
+
+10.times do
+  User.create(
+    email: Faker::Internet.email,
+    name: Faker::Name.name,
+    truename: Faker::Name.name,
+    phone: Faker::PhoneNumber.phone_number,
+    password: "12345678",
+    password_confirmation: "12345678",
+    is_admin: false
+  )
+end
+
+
+(1..12).each do |i|
+  u = User.find(i)
+  u.avatar.attach(io: File.open(Rails.root.join("app/assets/images/default-avatar.webp")), filename: "default-avatar.webp")
 end
 
 # Initialize Product
@@ -55,7 +75,7 @@ Product.find_or_create_by(title: "月度会员卡",
 ",
   price: 600,
   quantity: 100,
-  category_id: 1
+  category_id: 1,
 )
 
 Product.find_or_create_by(title: "季度会员卡",
@@ -190,21 +210,52 @@ Product.find_or_create_by(title: "肚皮舞导师班",
   category_id: 3
 )
 
-# user faker
-User.create(
-  email: Faker::Internet.email,
-  password: "123456",
-  password_confirmation: "123456",
-  name: Faker::Name.name,
-  avatar: Faker::Avatar.image,
-  address: Faker::Address.street_address,
+(1..11).each do |n|
+  p = Product.find(n)
+  p.image.attach(io: File.open(Rails.root.join("app/assets/images/product#{n}.webp")), filename: "product#{n}.webp")
+end
 
+Cart.create(
+  user_id: 2,
 )
 
-# comment faker
-# Comment.create(
-#   user_id: rand(1..10),
-#   : 1,
-  
+CartItem.create(
+  cart_id: 1,
+  product_id: 1,
+  quantity: 3
+)
 
-# Club.create(title: Faker::Company.name,
+CartItem.create(
+  cart_id: 1,
+  product_id: 3,
+  quantity: 2
+)
+
+30.times do |i|
+  Comment.create(
+    user_id: rand(1..20),
+    product_id: rand(1..11),
+    content: Faker::Lorem.paragraph(sentence_count: rand(1..3)) 
+  )
+
+  Favour.create(
+      user_id: rand(1..20),
+      product_id: rand(1..12)
+  )
+
+  Order.create(
+      user_id: rand(1..20),
+      token: Faker::Number.number(digits: 10),
+      is_paid: false,
+      phone_number: Faker::PhoneNumber.phone_number,
+      aasm_state: "paid"
+  )
+
+  ProductList.create(
+      order_id: rand(1..30),
+      product_id: rand(1..11),
+      quantity: rand(1..3),
+      product_price: rand(2000..10000)
+  )
+end
+
