@@ -11,7 +11,7 @@ if User.find_by(email: "admin@gmail.com").nil?
   a = User.new
   a.email = "admin@gmail.com"
   a.name = "admin"
-  a.phone = Faker::PhoneNumber.phone_number
+  # a.phone = Faker::PhoneNumber.phone_number
   a.password = "12345678"
   a.password_confirmation = "12345678"
   a.is_admin = true
@@ -25,7 +25,7 @@ if User.find_by(email: "user@gmail.com").nil?
   u = User.new
   u.email = "user@gmail.com"
   u.name = "lei"
-  u.phone = Faker::PhoneNumber.phone_number
+  # u.phone = Faker::PhoneNumber.phone_number
   u.password = "12345678"
   u.password_confirmation = "12345678"
   u.is_admin = false
