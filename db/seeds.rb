@@ -50,7 +50,12 @@ end
 
 (1..12).each do |i|
   u = User.find(i)
-  u.avatar.attach(io: File.open(Rails.root.join("app/assets/images/default-avatar.webp")), filename: "default-avatar.webp")
+  if Rails.env.production?
+    u.avatar.attach(io: File.open("app/assets/images/default-avatar.webp"), filename: "default-avatar.webp")
+  else
+    u.avatar.attach(io: File.open(Rails.root.join("app/assets/images/default-avatar.webp")), filename: "default-avatar.webp")
+  end
+
 end
 
 # Initialize Product
@@ -212,7 +217,12 @@ Product.find_or_create_by(title: "肚皮舞导师班",
 
 (1..11).each do |n|
   p = Product.find(n)
-  p.image.attach(io: File.open(Rails.root.join("app/assets/images/product#{n}.webp")), filename: "product#{n}.webp")
+  # if rails enviroment is production
+  if Rails.env.production?
+    p.image.attach(io: File.open("app/assets/images/product#{n}.webp"), filename: "product#{n}.webp")
+  else
+    p.image.attach(io: File.open(Rails.root.join("app/assets/images/product#{n}.webp")), filename: "product#{n}.webp")
+  end
 end
 
 Cart.create(
