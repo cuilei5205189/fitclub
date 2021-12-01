@@ -90,3 +90,5 @@ gem "rails-i18n", "~> 6.0"
 gem "aasm", "~> 5.2"
 
 gem "ransack", github: 'activerecord-hackery/ransack'
+
+gem "aws-sdk-s3", require: false
