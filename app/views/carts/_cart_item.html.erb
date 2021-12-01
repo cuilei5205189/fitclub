@@ -7,7 +7,7 @@
         <p class="item-price">
           <strong>
             ¥<% if cart_item.product.discount.present? %>
-               <%= cart_item.product.price.to_i * cart_item.product.discount / 100 * cart_item.quantity%>
+               <%= cart_item.product.price * cart_item.product.discount / 100 * cart_item.quantity%>
              <% else %>
                <%= cart_item.product.price * cart_item.quantity %>
             <% end %>
