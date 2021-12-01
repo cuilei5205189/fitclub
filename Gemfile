@@ -86,3 +86,7 @@ gem "faker", "~> 2.19"
 gem "rails-i18n", "~> 6.0"
 
 
+
+gem "aasm", "~> 5.2"
+
+gem "ransack", github: 'activerecord-hackery/ransack'

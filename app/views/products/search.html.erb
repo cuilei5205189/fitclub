@@ -1,0 +1,31 @@
+<div class="container">
+  <% if @products.blank?%>
+    <div class="d-flex align-items-center justify-content-center" style="height:60vh" >
+      <h2 class="no-collection text-center text-danger">
+        <i class="bi bi-exclamation-triangle-fill"></i> 
+        抱歉，没有找到对应的搜索结果，请重新搜索。
+      </h2>
+    </div>
+  <% else %>
+    <h3 class="text-center mt-8">关于 <mark><%= params[:query] %></mark>  <i class="bi bi-search"></i>结果</h3><br>
+    <div class="row">
+          <% @products.each do |product| %>
+          <div class="product text-center my-3">
+            <%= link_to product_path(product) do %>
+              <% if product.image.present? %>
+                <%= image_tag(product.image_url, class: "img-thumbnail", style: "width:130px;height:100px") %>
+              <% else %>
+                <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "img-thumbnail") %>
+              <% end %>
+            <% end %>
+            <div class="title">
+              <%= highlight product.title, params[:query] %> ￥<%= product.price %>
+            </div>
+            <div class="description">
+              <%= highlight product.description, params[:query] %> ￥<%= product.price %>
+            </div>
+          </div>
+          <% end %>
+    </div>
+  <% end %>
+</div>
