@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  helper_method :current_cart
   
   def admin_required
     if !current_user.is_admin
@@ -7,13 +8,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :current_cart
-
   def current_cart
-    # 如果用户登陆了，找到用户的专属购物车
-
     if current_user
-      @current_cart ||= find_user_cart
+      if current_user.cart
+        session[:cart_id] = current_user.cart.id
+        @current_cart = current_user.cart
+      else
+        cart = find_session_cart
+        cart.update user_id: current_user.id
+        cart
+      end
     else
       @current_cart ||= find_session_cart
     end
@@ -28,24 +32,11 @@ class ApplicationController < ActionController::Base
   private
 
   def find_session_cart
-    cart = Cart.find_or_create_by(id: session[:cart_id])
-    session[:cart_id] = cart.id
-    cart
-  end
-
-  def find_user_cart
-    cart = current_user.cart
+    cart = Cart.find_by(id: session[:cart_id])
     if cart.blank?
       cart = Cart.create
-      current_user.cart = cart
     end
-    session_cart = find_session_cart
-    # 把临时购物车中的商品倒进用户的专属购物车
-
-    unless session_cart.blank?
-      cart.merge!(session_cart)
-      session_cart.clean!
-    end
+    session[:cart_id] = cart.id
     cart
   end
 end
