@@ -76,9 +76,13 @@ $danger:        $red !default;
 $dark:          $gray-900 !default;
 // scss-docs-end theme-color-variables
 // theme colors
-$primary: #d9d6d6;; //$blue !default;
+$primary: $secondary;; //$blue !default;
 $dark: #2d2d30;
 $light: #d9d6d6;
+
+$nav-tabs-link-active-color: $red;
+$nav-pills-link-active-color: $red;
+$nav-pills-link-active-bg: $gray-200;
 
 $body-color: gray; //$gray-900 !default;
 $link-color: $primary !default;
