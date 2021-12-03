@@ -4,4 +4,5 @@ WORKDIR /app
 COPY ./Gemfile* /app/
 RUN bundle install
 COPY ./ /app/
-CMD rails db:setup; ./bin/dev s -b 0.0.0.0
+RUN yarn install
+CMD rails db:setup;./bin/dev;rails s -b 0.0.0.0 
