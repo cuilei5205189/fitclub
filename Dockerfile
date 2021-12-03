@@ -1,8 +1,7 @@
 FROM ruby:3.0.0
-RUN apt-get update -yqq && apt-get install -yqq nodejs npm && npm install -g yarn
-WORKDIR /app
-COPY ./Gemfile* /app/
+RUN apt-get update -y
+WORKDIR /myapp
+COPY ./Gemfile* /myapp/
 RUN bundle install
-COPY ./ /app/
-RUN yarn install
-CMD rails db:setup;./bin/dev;rails s -b 0.0.0.0 
+COPY ./ /myapp/
+CMD rm -f tmp/pids/server.pid;rails db:reset;rails s -b 0.0.0.0 

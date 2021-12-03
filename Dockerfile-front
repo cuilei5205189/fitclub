@@ -1,0 +1,6 @@
+FROM node
+WORKDIR /myapp
+RUN apt-get update -y && apt-get install ruby -y
+# COPY ./package.json /myapp
+# COPY ./ /myapp/
+CMD yarn install;./bin/dev
