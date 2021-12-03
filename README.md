@@ -1,16 +1,29 @@
 # README
-
 ## How run
-- Docker
+### option 1 with Docker
+```
+git pull https://github.com/cuilei5205189/fitclub
+cd fitclub
+docker-compose up
+```
 
-- CSS and JS build
-`./bin/dev`
-- rails server
-`rails s`
+### option 2
+```
+git pull https://github.com/cuilei5205189/fitclub
+cd fitclub
+- install ruby 3.0.0
+- install rails 7.0.0.alpha2 
+- bunlde install && yarn install
+./bin/dev # start css js building server
+rails s # start server
+```
 
-use bootstrap and bootstrap-icons
+### stack
+- bootstrap and bootstrap-icons
+- aws-s3
+- heroku
 
-* Ruby version
+* Ruby and Rails version
 ```
 rails about
 About your application's environment
@@ -23,16 +36,3 @@ Environment               development
 Database adapter          sqlite3
 Database schema version   0
 ```
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
