@@ -3,5 +3,5 @@ json.array! @products do |product|
   json.title product.title
   json.description product.description
   json.price product.price
-  json.image product.image_url
+  json.image request.base_url.concat product.image_url
 end
