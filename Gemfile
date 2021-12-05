@@ -93,3 +93,5 @@ gem "aasm", "~> 5.2"
 gem "ransack", github: 'activerecord-hackery/ransack'
 
 gem "aws-sdk-s3", require: false
+
+gem "rack-cors", "~> 1.1"
