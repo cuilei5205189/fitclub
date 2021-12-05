@@ -19,11 +19,12 @@ rails s # start server
 ```
 
 ### stack
-- bootstrap and bootstrap-icons
-- aws-s3
-- heroku
+- bootstrap and bootstrap-icons css framework
+- aws-s3 image upload
+- heroku deploy
+- please look Gemfile
 
-* Ruby and Rails version
+### Ruby and Rails version
 ```
 rails about
 About your application's environment

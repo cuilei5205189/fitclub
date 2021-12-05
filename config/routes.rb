@@ -28,7 +28,6 @@ Rails.application.routes.draw do
         post :hide
       end
     end
-
   end
 
   resources :products do
@@ -92,8 +91,38 @@ Rails.application.routes.draw do
     end
   end
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  # Almost every application defines a route for the root path ("/") at the top of this file.
-  # root "articles#index"
+  # api
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :products do
+        resources :comments
+      end
+      resources :carts do
+        resources :cart_items
+      end
+      resources :orders do
+        member do
+          post :pay_with_wechat
+          post :pay_with_alipay
+        end
+      end
+      resources :clubs do
+        member do
+          post :join
+          post :quit
+          post :upvote
+        end
+        resources :club_reviews
+      end
+      resources :articles do
+        member do
+          post :join
+          post :quit
+        end
+        resources :article_reviews
+      end
+    end
+  end
+
 end

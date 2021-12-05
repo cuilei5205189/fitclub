@@ -28,7 +28,7 @@ class Product < ApplicationRecord
 
   def image_url
     if image.attached?
-      Rails.application.routes.url_helpers.rails_blob_path(image, only_path: true)
+      Rails.application.routes.url_helpers.rails_blob_path(image, only_path: false)
     else
       default_image_url
     end
