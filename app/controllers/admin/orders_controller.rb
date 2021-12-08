@@ -12,7 +12,7 @@ class Admin::OrdersController < Admin::BaseController
   def activate
     @order = Order.find(params[:id])
     @order.activate!
-    OrderMailer.notify_activate(@order).deliver!
+    OrderMailer.notify_activate(@order).deliver_later
     flash[:notice] = "Activate request has been sent to the customer."
     redirect_to admin_orders_path
   end

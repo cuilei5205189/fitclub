@@ -12,7 +12,7 @@ class Admin::CategoriesController < Admin::BaseController
     if @category.save
       redirect_to admin_categories_path
     else
-      render :new
+      redirect_to new_admin_category_path	,  alert: @category.errors.full_messages.join(",")
     end
   end
 

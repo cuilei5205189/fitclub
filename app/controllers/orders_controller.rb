@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
           product.save
         end
         current_cart.clean!
-        OrderMailer.notify_order_placed(@order).deliver!
+        OrderMailer.notify_order_placed(@order).deliver_later
         flash[:notice] = "成功创建订单"
         redirect_to order_path(@order.token)
       else
@@ -60,7 +60,7 @@ class OrdersController < ApplicationController
 
   def apply_to_cancel
     @order = Order.find(params[:id])
-    OrderMailer.apply_cancel(@order).deliver!
+    OrderMailer.apply_cancel(@order).deliver_later
     flash[:notice] = "已提交申请"
     redirect_to order_path(@order.token)
   end

@@ -9,20 +9,14 @@ class CommentsController < ApplicationController
 
   def create
     @product = Product.find(params[:product_id])
-    @comment = Comment.new(comment_params)
+    @comment = Comment.new(params[:comment].permit(:content))
     @comment.product = @product
     @comment.user = current_user
     if @comment.save
       flash[:notice] = "评论成功"
       redirect_to product_path(@product)
     else
-      render :new
+      redirect_to new_product_comment_path(@product), alert: @comment.errors.full_messages.join("\n")
     end
-  end
-
-  private
-
-  def comment_params
-    params.require(:comment).permit(:content)
   end
 end
